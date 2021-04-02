@@ -220,9 +220,12 @@ app.get('/',function(req,res)
   res.send("GET METHOD NOT ALLOWED :(");
 });
 
-var server = app.listen(2000,function()
-{
-  var host=server.address().address
-  var port=server.address().port
-  console.log("Server running!")
-});
+// var server = app.listen(2000,function()
+// {
+//   var host=server.address().address
+//   var port=server.address().port
+//   console.log("Server running!")
+// });
+
+const port = process.env.PORT || '2000';
+app.listen(port, () => console.log(`Server started on Port ${port}`));
