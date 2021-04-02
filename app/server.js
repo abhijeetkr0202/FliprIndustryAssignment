@@ -210,12 +210,15 @@ app.post('/address_locator',async function(req,res)
   geokey="AIzaSyA5bwbEsAOUMOI4RK2zXcIayG4vjuQSpcw";
   var addresses=req.body.addresses;
   var a=await getCordinatesArray(dataArray,addresses,geokey);
-  res.json(a);
+  res.json(a); 
   
-
+ 
 });
 
-
+app.get('/',function(req,res)
+{
+  res.send("GET METHOD NOT ALLOWED :(");
+});
 
 var server = app.listen(2000,function()
 {
