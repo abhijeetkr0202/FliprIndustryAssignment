@@ -209,9 +209,14 @@ app.post('/address_locator',async function(req,res)
   var dataArray=new Array();
   geokey="AIzaSyA5bwbEsAOUMOI4RK2zXcIayG4vjuQSpcw";
   var addresses=req.body.addresses;
+  try{
   var a=await getCordinatesArray(dataArray,addresses,geokey);
   res.json(a); 
-  
+  }
+  catch(e)
+  {
+    res.json({"error handled":"error handled"});
+  }
  
 });
 
