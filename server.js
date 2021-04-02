@@ -16,7 +16,7 @@ app.use(express.urlencoded());
 //returns array of (count)number of devices from specified collection
 function getDevices(db,colA,count)
 {
-  var cursor=db.collection(colA).find(qe).limit(count).sort({'createdAt':-1});
+  var cursor=db.collection(colA).find().limit(count).sort({'createdAt':-1});
   var deviceList=cursor.toArray();
 
   return deviceList;
