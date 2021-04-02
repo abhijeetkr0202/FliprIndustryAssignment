@@ -16,7 +16,7 @@ app.use(express.urlencoded());
 //returns array of (count)number of devices from specified collection
 function getDevices(db,colA,count)
 {
-  var cursor=db.collection(colA).find().limit(count).sort({'createdAt':-1});
+  var cursor=db.collection(colA).find(qe).limit(count).sort({'createdAt':-1});
   var deviceList=cursor.toArray();
 
   return deviceList;
@@ -30,7 +30,7 @@ function getDevices(db,colA,count)
 function getStatus(device,db,colB,count)
 {
 
-  // var query={"imei":device.imei};
+  var query={"device":device.id};
   var cur=db.collection(colB).find().limit(count).sort({"createdAt":1});
   var statusList=cur.toArray();
 
@@ -128,6 +128,7 @@ app.post('/device_details/:colA',function(req,res)
 
   var arr={};
   main(uri,dbName,colA,colB,countA,countB,req,res,arr).catch(console.error);
+  
   
 
 });
