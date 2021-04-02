@@ -115,7 +115,9 @@ async function main(uri,dbName,colA,colB,countA,countB,req,res,arr){
 
 app.post('/device_details/:colA',function(req,res)
 {
+  
   const uri=req.body.uri;
+
   let colA=req.params.colA,
       colB=req.query.colB;
   // const uri="mongodb+srv://backendconcoxdeveloper:V3jUV7QXqEoAtnhy@cluster0-zhjde.mongodb.net";
