@@ -88,7 +88,10 @@ async function main(uri,dbName,colA,colB,countA,countB,req,res,arr){
         
 
           var statusData = await getDeviceStatus(data,db,colB,countB,arr);
-        
+          res.set({
+            'name':'abhijeet',
+            "contact":"977777777"
+          });
           res.json(statusData);
 
       });   
